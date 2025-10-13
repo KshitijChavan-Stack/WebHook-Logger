@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-10-11T14:06:27.615Z",
+  "source": "test",
+  "headers": {
+    "host": "localhost:3000",
+    "user-agent": "curl/8.14.1",
+    "accept": "*/*",
+    "content-type": "application/json",
+    "content-length": "12"
+  },
+  "payload": {
+    "raw": "'{\"message\":"
+  },
+  "processed": false,
+  "status": "received"
+}

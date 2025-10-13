@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhook Logger Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🪝 Webhook Logger</h1>
+            <p>Monitor and track incoming webhooks in real-time</p>
+            <button id="refreshBtn" class="btn">↻ Refresh</button>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3 id="totalWebhooks">0</h3>
+                <p>Total Webhooks</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="todayWebhooks">0</h3>
+                <p>Today</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="recentSource">-</h3>
+                <p>Most Recent Source</p>
+            </div>
+        </div>
+
+        <div class="webhooks-section">
+            <h2>Recent Webhooks</h2>
+            <div id="webhooksContainer" class="webhooks-list">
+                <p class="loading">Loading webhooks...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Webhook Details</h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

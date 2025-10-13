@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-10-11T14:10:03.653Z",
+  "source": "test",
+  "headers": {
+    "host": "localhost:3000",
+    "user-agent": "curl/8.14.1",
+    "accept": "*/*",
+    "content-type": "application/json",
+    "content-length": "54"
+  },
+  "payload": {
+    "message": "Hello from test!",
+    "event": "test_event"
+  },
+  "processed": false,
+  "status": "received"
+}
