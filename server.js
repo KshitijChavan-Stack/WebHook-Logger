@@ -218,18 +218,32 @@ function getAllWebhooks() {
  */
 //-------------------------------Section end--------------------------
 
+// ---------------------------section seven---------------------------
+
 // Serve static files
+//Sends files (HTML, CSS, JS) from your computer to the browser.
 function serveStaticFile(res, filepath, contentType) {
+  /*
+  res = Response object (what we send back to browser)
+  filepath = Path to the file we want to send
+  contentType = What type of file it is
+  serveStaticFile(res, 'public/index.html', 'text/html');
+   */
+  //Start reading file (async)
   fs.readFile(filepath, (err, data) => {
     if (err) {
+      //Send status and headers-> .writehead()
       res.writeHead(404, { "Content-Type": "text/plain" });
       res.end("404 Not Found");
+      //res.end() sends it to the browser and closes the response.
       return;
     }
     res.writeHead(200, { "Content-Type": contentType });
-    res.end(data);
+    // The type we received as parameter (text/html, text/css, etc.)
+    res.end(data); //res.end() sends it to the browser and closes the response.
   });
 }
+//------------------------Section end---------------------------------
 
 // Main server
 const server = http.createServer(async (req, res) => {
