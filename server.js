@@ -172,23 +172,51 @@ function saveWebhook(webhookData) {
   // const savedFile = saveWebhook(data);
   // console.log('Saved as:', savedFile);
 }
+// ---------------------------Section end-------------------------------
+
+//-------------------------section six---------------------------------
+
+//What Does This Function Do?
+// Simple answer: Reads all webhook files from the webhooks/
+// folder and returns them as an array.
 
 // Get all webhooks
 function getAllWebhooks() {
-  const files = fs
-    .readdirSync(WEBHOOKS_DIR)
-    .filter((f) => f.endsWith(".json"))
-    .sort()
-    .reverse(); // Most recent first
+  //Result: Array of JSON filenames, newest first!
+  const files = fs // Each method operates on result of previous(method chaining)
+    .readdirSync(WEBHOOKS_DIR) // Get all files names in array format
+    .filter((f) => f.endsWith(".json")) // Keep only JSON
+    .sort() // Sort oldest→newest
+    .reverse(); // Flip to newest→oldest
 
+  // .map() -> transforms each item in an array.
+
+  /*
+    Complete flow:
+    filename 
+      → build path 
+        → read file (get text) 
+          → parse JSON (get object)
+            → store in `data`
+    */
   return files.map((file) => {
     const data = JSON.parse(fs.readFileSync(path.join(WEBHOOKS_DIR, file)));
     return {
       id: file,
-      ...data,
+      ...data, //The ... is called the spread operator.
+      //  It "spreads out" all properties from an object
     };
   });
 }
+/*
+ With spread
+{
+  id: "webhook_123.json",
+  ...data     // Spreads properties 
+}
+ Result: { id: "...", timestamp: "...", source: "..." }
+ */
+//-------------------------------Section end--------------------------
 
 // Serve static files
 function serveStaticFile(res, filepath, contentType) {

@@ -1,0 +1,214 @@
+/* Modern CSS with Pastel Green Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --primary: #98D8AA;
+    --primary-dark: #7BC99B;
+    --background: #F6FFF8;
+    --text: #2C3E50;
+    --shadow: rgba(152, 216, 170, 0.2);
+    --card-bg: #FFFFFF;
+    --hover: #E8F6EA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #64748B;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Stats Section */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow);
+    text-align: center;
+    transition: transform 0.2s;
+    border: 2px solid var(--primary);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: var(--hover);
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+/* Webhooks Section */
+.webhooks-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px var(--shadow);
+    border: 2px solid var(--primary);
+}
+
+.webhooks-section h2 {
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.webhooks-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.webhook-item {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.webhook-item:hover {
+    background: var(--hover);
+    transform: translateX(5px);
+}
+
+.loading {
+    text-align: center;
+    color: #64748B;
+    padding: 2rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: var(--card-bg);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748B;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: var(--text);
+}
+
+#modalBody {
+    margin-top: 1rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10% 1rem;
+        padding: 1.5rem;
+    }
+}
